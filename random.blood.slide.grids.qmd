@@ -1,0 +1,50 @@
+---
+title: "Code to Randomly Select Grid Squares on Blood Slides"
+author: "Cory McKinstry"
+format: html
+---
+
+**Context:** We have hundreds of blood slides that we want to do cell counts on. We recently purchased a stamp that we can use to find random positions on the blood slides that we can take photographs of, then complete cell counts on.
+
+**Goal:** Based on an 8x8 grid where columns are A-H and rows are 1-8, randomly select grid cell values to use as picture locations on the blood slides.
+
+## Loading Packages
+
+```{r}
+#| message: false
+
+library(tidyverse)
+```
+
+## Creating Dataframe of Values
+
+```{r}
+columns <- c("A", "B", "C", "D", "E", "F", "G", "H")
+#If you're doing two stamps per slide, extend columns to P
+rows <- seq(1, 8, 1)
+
+combinations <- expand.grid(
+  columns = columns, rows = rows)
+
+combinations$combinations <- paste(
+  combinations$columns, combinations$rows, sep="")
+```
+
+## Creating Random List from Values
+
+```{r}
+set.seed(123) #For reproducibility, change for new random values
+
+random.list <- sample(
+  combinations$combinations,
+  1000, #Length of the random list
+  replace = TRUE,
+  prob = NULL)
+```
+
+## Full list
+
+```{r}
+random.list
+```
+
