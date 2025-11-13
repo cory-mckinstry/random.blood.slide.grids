@@ -1,7 +1,7 @@
 ---
 title: "Code to Randomly Select Grid Squares on Blood Slides"
 author: "Cory McKinstry"
-format: html
+format: pdf
 ---
 
 **Context:** We have hundreds of blood slides that we want to do cell counts on. We recently purchased a stamp that we can use to find random positions on the blood slides that we can take photographs of, then complete cell counts on.
